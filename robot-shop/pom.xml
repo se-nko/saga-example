@@ -11,8 +11,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>robot-shop</name>
   <description>Application represents robot shop</description>
+
   <properties>
-    <kotlin.version>1.9.21</kotlin.version>
+    <kotlin.version>1.9.0</kotlin.version>
   </properties>
 
   <dependencies>
@@ -37,6 +38,11 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <layers>
+            <enabled>true</enabled>
+          </layers>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.jetbrains.kotlin</groupId>
