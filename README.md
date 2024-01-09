@@ -41,7 +41,7 @@ A running instance of [EGO](https://github.com/overture-stack/ego/) is required 
 
 
 ### Local
-* [Java 8 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java 17 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven](https://maven.apache.org/download.cgi)
 
 
@@ -69,19 +69,34 @@ Configure the port by changing `server.port` in __application.yml__
 
 ### Run Docker
 
-First build the image:
+First build the images for all services:
+
 ```bash
-$ docker-compose build
+$ cd robot-factory 
+$ docker build -t robot-factory:0.0.1 ../ --file Dockerfile
 ```
+
+```bash
+$ cd robot-shop 
+$ docker build -t robot-shop:0.0.1 ../ --file Dockerfile
+```
+
+Every Dockerfile run from each module's directory
 
 When ready, run it:
 ```bash
-$ docker-compose up
+$ docker-compose pull --ignore-pull-failures
+$ docker-compose up -d
 ```
 
-Application will run by default on port `1234`
+Services will run by default on localhost on port:
 
-Configure the port by changing `services.api.ports` in __docker-compose.yml__. Port 1234 was used by default so the value is easy to identify and change in the configuration file.
+| service-name  | port | 
+|---------------|:----:|
+| robot-factory | 8081 | 
+| robot-shop    | 8082 |   
+| grafana       | 3000 |   
+| prometheus    | 9090 |   
 
 
 ## Testing

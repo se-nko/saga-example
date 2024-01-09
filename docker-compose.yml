@@ -1,0 +1,56 @@
+version: '3.9'
+
+#Services
+services:
+  robot-factory:
+    image: robot-factory:0.0.1
+    ports:
+      - "8081:8080"
+    restart: always
+    networks:
+      - backend
+
+  robot-shop:
+    image: robot-shop:0.0.1
+    ports:
+      - "8082:8080"
+    restart: always
+    networks:
+      - backend
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
+
+#  Validate docker-compose file and configuration
+#  $ docker-compose config
+
+#  Builds, (re)creates, starts, and attaches to containers for a service.
+#  $ docker-compose up -d
+
+#  Lists containers
+#  $ docker-compose ps
+
+#  Stops running containers without removing them
+#  $ docker-compose stop
+
+#  Starts existing containers for a service
+#  $ docker-compose start
+
+#  Stops containers and removes containers, networks, volumes, and images created by - up
+#  $ docker-compose down

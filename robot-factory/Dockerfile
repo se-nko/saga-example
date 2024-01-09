@@ -19,9 +19,6 @@ COPY --from=builder application/ ./
 
 ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
 
-# для создания образа
-#docker build -t robot-factory:0.0.1 ../ --file Dockerfile запускаем из корневой директории проекта
-
 # запуск
 # docker run -p 8080:8080 robot-shop:0.0.1
 
