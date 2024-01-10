@@ -69,7 +69,7 @@ Configure the port by changing `server.port` in __application.yml__
 
 ### Run Docker
 
-First build the images for all services:
+First build the images for all robot-* services:
 
 ```bash
 $ cd robot-factory 
@@ -91,12 +91,13 @@ $ docker-compose up -d
 
 Services will run by default on localhost on port:
 
-| service-name  | port | 
-|---------------|:----:|
-| robot-factory | 8081 | 
-| robot-shop    | 8082 |   
-| grafana       | 3000 |   
-| prometheus    | 9090 |   
+| service-name  | port  | 
+|---------------|:-----:|
+| robot-factory | 8081  | 
+| robot-shop    | 8082  |   
+| grafana       | 3000  |   
+| prometheus    | 9090  |   
+| rabbitmq      | 15672 |   
 
 
 ## Testing

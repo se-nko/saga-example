@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 9081
 
 management:
   endpoints:
@@ -14,3 +14,22 @@ management:
     metrics:
       export:
         enabled: true
+
+spring:
+  rabbitmq:
+    host: localhost
+    virtual-host: test-host
+    username: user
+    password: pass
+    port: 5672
+    template:
+      exchange: test-exchange
+
+application:
+  rabbitmq:
+    queue:
+      robot-shop-out:
+        topic: robot-shop-out
+      robot-factory-in:
+        topic: robot-factory-in
+        routing-key: robot-factory-in

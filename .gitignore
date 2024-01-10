@@ -11,6 +11,8 @@ target/
 .idea/workspace.xml
 .idea/compiler.xml
 .idea/encodings.xml
+.idea/kotlinc.xml
+.idea/uiDesigner.xml
 .idea/libraries/
 *.iws
 *.iml
