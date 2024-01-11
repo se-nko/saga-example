@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class RobotShopSender {
 
-    @Value("${application.rabbitmq.queue.robot-factory-in.routing-key}")
+    @Value("${application.rabbitmq.queue.robot-shop-in.routing-key}")
     private String routingKey;
 
     private final RabbitTemplate rabbitTemplate;

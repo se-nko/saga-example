@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "name": "user",
+      "password": "password",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": "administrator"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "user",
+      "vhost": "test-host",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "vhosts":[
+    {"name":"/"},
+    {"name":"test-host"}
+  ],
+  "exchanges": [
+    {
+      "name": "test-exchange",
+      "vhost": "test-host",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "queues": [
+    {
+      "name": "robot-shop-in",
+      "vhost": "test-host",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
+    },
+    {
+      "name": "robot-shop-out",
+      "vhost": "test-host",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
+    },
+    {
+      "name": "robot-factory-in",
+      "vhost": "test-host",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
+    },
+    {
+      "name": "robot-factory-out",
+      "vhost": "test-host",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
+    }
+  ],
+  "bindings": [
+    {
+      "source": "test-exchange",
+      "vhost": "test-host",
+      "destination": "robot-shop-in",
+      "destination_type": "queue",
+      "routing_key": "robot-shop-in",
+      "arguments": {}
+    },
+    {
+      "source": "test-exchange",
+      "vhost": "test-host",
+      "destination": "robot-shop-out",
+      "destination_type": "queue",
+      "routing_key": "robot-shop-out",
+      "arguments": {}
+    },
+    {
+      "source": "test-exchange",
+      "vhost": "test-host",
+      "destination": "robot-factory-in",
+      "destination_type": "queue",
+      "routing_key": "robot-shop-in",
+      "arguments": {}
+    },
+    {
+      "source": "test-exchange",
+      "vhost": "test-host",
+      "destination": "robot-factory-out",
+      "destination_type": "queue",
+      "routing_key": "robot-shop-out",
+      "arguments": {}
+    }
+  ]
+}

@@ -42,3 +42,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Configs ###
+/config/rabbitmq/*
+!/config/rabbitmq/init

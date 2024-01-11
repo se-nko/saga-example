@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class RobotFactoryListener {
 
-    @RabbitListener(queues = {"${application.rabbitmq.queue.robot-shop-out.topic}"})
+    @RabbitListener(queues = {"${application.rabbitmq.queue.robot-factory-in.topic}"})
     public void listen(String message) {
         log.info("receive message: {}", message);
     }

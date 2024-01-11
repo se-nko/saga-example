@@ -14,3 +14,29 @@ management:
     metrics:
       export:
         enabled: true
+
+#Swagger OpenAPI v3
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+spring:
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    virtual-host: test-host
+    username: user
+    password: password
+    port: 5672
+    template:
+      exchange: test-exchange
+
+application:
+  rabbitmq:
+    queue:
+      robot-factory-out:
+        topic: robot-factory-out
+      robot-factory-in:
+        routing-key: robot-factory-in

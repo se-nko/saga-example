@@ -1,5 +1,5 @@
 server:
-  port: 9081
+  port: 8081
 
 management:
   endpoints:
@@ -17,10 +17,10 @@ management:
 
 spring:
   rabbitmq:
-    host: localhost
+    host: ${RABBIT_HOST:localhost}
     virtual-host: test-host
     username: user
-    password: pass
+    password: password
     port: 5672
     template:
       exchange: test-exchange
@@ -28,8 +28,7 @@ spring:
 application:
   rabbitmq:
     queue:
-      robot-shop-out:
-        topic: robot-shop-out
+      robot-shop-in:
+        routing-key: robot-shop-in
       robot-factory-in:
         topic: robot-factory-in
-        routing-key: robot-factory-in

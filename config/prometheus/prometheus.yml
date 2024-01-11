@@ -6,8 +6,8 @@ scrape_configs:
   - job_name: 'robot-factory'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ['host.docker.internal:8081']
+      - targets: [ 'robot-factory:9081' ]
   - job_name: 'robot-shop'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: [ 'host.docker.internal:8082' ]
+      - targets: [ 'robot-shop:8082' ]
